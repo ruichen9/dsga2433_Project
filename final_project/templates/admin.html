@@ -1,0 +1,12 @@
+<style>
+    body {text-align: center;}
+</style>
+
+<h1>Admin Port</h1>
+<h2>Select a table</h2>
+<form action="http://127.0.0.1:5000/table" method="POST">
+    {% for item in table_names %}
+        <input type="radio" name="table_name" value={{item}}>{{ item }}<br>
+    {% endfor %}
+    <p><input type = "submit" value = "Nexts" /></p>
+</form>

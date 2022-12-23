@@ -1,0 +1,25 @@
+<style>
+   body {text-align: center;}
+</style>
+
+<h1>{{ table_name }}</h1>
+<table border = 1>
+   <tr>
+      <th>  </th>
+      {% for col_name in col_names %}
+         <th> {{ col_name }} </th>
+      {% endfor %}
+   </tr>
+   {% for row in data %}
+      <tr>
+         {% for single_data in row %}
+            <td> {{ single_data }} </td>
+         {% endfor %}
+      </tr>
+   {% endfor %}
+</table>
+
+<form action="http://127.0.0.1:5000/success" method="POST">
+    <p>Delete row number: <input type="text" name="row" /></p>
+    <p><input type="submit" value="Confirm" /></p>
+</form>

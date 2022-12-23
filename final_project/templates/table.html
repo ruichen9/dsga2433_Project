@@ -1,0 +1,38 @@
+<!doctype html>
+
+
+<style>
+   body {text-align: center;}
+</style>
+
+
+<form action="http://127.0.0.1:5000/operation" method="POST">
+
+   
+   <h1>{{ table_name }} </h1>
+   <input type="radio" name="operation" value='insert'>Insert &nbsp;&nbsp;&nbsp;&nbsp;
+   <input type="radio" name="operation" value="delete">Delete &nbsp;&nbsp;&nbsp;&nbsp;
+   <input type="radio" name="operation" value="update">Update<br><br><br><br>
+   <table border = 1>
+      <tr>
+         <th>  </th>
+         {% for col_name in col_names %}
+            <th> {{ col_name }} </th>
+         {% endfor %}
+      </tr>
+      {% for row in data %}
+         <tr>
+            {% for single_data in row %}
+               <td> {{ single_data }} </td>
+            {% endfor %}
+         </tr>
+      {% endfor %}
+   </table>
+
+<br><br><br><br><br>
+
+
+   Table name: <input type="text" name="table_name" value={{ table_name }}> <br><br>
+
+   <p><input type = "submit" value = "Next" /></p>
+</form>
